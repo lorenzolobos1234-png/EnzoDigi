@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B2A4A">
+<title>Complete your enrollment — Enzo Digital</title>
+<meta name="description" content="Pay via GCash to enroll in your Enzo Digital course.">
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Enzo Digital home"><img src="assets/logo.svg" alt="Enzo Digital"></a>
+    <nav class="nav">
+      <a href="index.html#courses">Courses</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-narrow">
+    <p class="eyebrow">Checkout</p>
+    <h1>Complete your enrollment</h1>
+    <div class="step-line">
+      <span class="step-dot done"><b>1</b> Choose course</span>
+      <span class="step-dot active"><b>2</b> Pay via GCash</span>
+      <span class="step-dot"><b>3</b> Get access</span>
+    </div>
+  </div>
+</section>
+
+<div class="page-narrow" style="padding-bottom:64px">
+
+  <!-- ORDER SUMMARY / CHOOSER -->
+  <div class="panel">
+    <h3 style="margin-bottom:1rem">Your course</h3>
+
+    <!-- shown when a course is preselected -->
+    <div class="order-row" id="orderRow" hidden>
+      <div class="cover" id="orderCover">
+        <span class="cv-tag" id="ocTag">Course</span>
+        <div class="cv-title" id="ocTitle">—</div>
+      </div>
+      <div class="order-info">
+        <h3 id="orderName">—</h3>
+        <p>One-time payment · Lifetime access</p>
+      </div>
+      <div class="order-total" id="orderTotal">₱0</div>
+    </div>
+
+    <!-- shown when nothing is preselected -->
+    <div class="choose" id="chooser" hidden>
+      <label data-course="racket"><input type="radio" name="course" value="racket"><span class="cn">RaketPH Mini Course</span><span class="cp">₱999</span></label>
+      <label data-course="busybooks"><input type="radio" name="course" value="busybooks"><span class="cn">Busy Books</span><span class="cp">₱1,499</span></label>
+      <label data-course="dpc"><input type="radio" name="course" value="dpc"><span class="cn">Digital Product Creation Course</span><span class="cp">₱2,499</span></label>
+    </div>
+  </div>
+
+  <!-- GCASH DETAILS -->
+  <div class="panel gcash">
+    <h3 style="margin-bottom:.4rem">Send payment via GCash</h3>
+    <p style="color:#AFC2D6;font-size:.94rem;margin-bottom:1rem">Send the exact amount below to this GCash account.</p>
+    <div class="gc-row">
+      <span class="gc-k">Amount to send</span>
+      <span class="gc-v amt" id="gcAmount">₱0</span>
+    </div>
+    <div class="gc-row">
+      <span class="gc-k">GCash number</span>
+      <span class="gc-v"><span id="gcNumber">0916 735 9344</span>
+        <button class="copybtn" type="button" onclick="copyNum()">Copy</button></span>
+    </div>
+    <div class="gc-row">
+      <span class="gc-k">Account name</span>
+      <!-- TODO: replace with your real GCash account name -->
+      <span class="gc-v"><span class="placeholder">[ Add your GCash name ]</span></span>
+    </div>
+    <div class="gc-row">
+      <span class="gc-k">Reference / note</span>
+      <span class="gc-v" id="gcRef" style="font-size:.98rem">Your name + course</span>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <div class="panel">
+    <h3 style="margin-bottom:1.2rem">What to do next</h3>
+    <ol class="steps">
+      <li><div class="sc"><b>Open GCash and send the exact amount.</b><p>Use the number and amount shown above. Adding your name in the notes helps us find your payment faster.</p></div></li>
+      <li><div class="sc"><b>Screenshot your receipt.</b><p>Make sure the amount, reference number, and date are visible.</p></div></li>
+      <li><div class="sc"><b>Send us the screenshot + your email.</b>
+        <p>DM it to us on Instagram at <a href="https://www.instagram.com/enzodigitals/" target="_blank" rel="noopener">@enzodigitals</a> so we can confirm your payment.</p></div></li>
+      <li><div class="sc"><b>Get your access.</b><p>Once confirmed, you'll receive your course access details. Then you're in — for life.</p></div></li>
+    </ol>
+    <a class="btn btn-ig btn-block btn-lg" style="margin-top:1.6rem" href="https://www.instagram.com/enzodigitals/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1.15em;height:1.15em"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg> Send your receipt here</a>
+    <a class="btn btn-ghost btn-block" href="thank-you.html" style="margin-top:.7rem">I've sent my payment</a>
+    <p class="notice"><span><b>All sales are final.</b> Once your payment is confirmed we can't issue a refund, since course access is delivered right away. Double-check your course and amount before sending.</span></p>
+    <p class="note-line">Having trouble? Reach out and we'll sort it out with you.</p>
+  </div>
+
+  <a class="back-link" href="index.html#courses">← Back to courses</a>
+</div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo-white.svg" alt="Enzo Digital"></a>
+    <span>© <span id="yr"></span> Enzo Digital. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const COURSES = {
+    racket:    { name:"RaketPH Mini Course",            price:999,  amt:"₱999",   tag:"Mini Course",       cover:"cover-blue",  title:"RaketPH" },
+    busybooks: { name:"Busy Books",                       price:1499, amt:"₱1,499", tag:"Templates + Course",cover:"cover-orange",title:"Busy Books" },
+    dpc:       { name:"Digital Product Creation Course",  price:2499, amt:"₱2,499", tag:"Flagship Course",   cover:"cover-navy",  title:"Digital Product Creation" }
+  };
+
+  const params = new URLSearchParams(location.search);
+  const chooser = document.getElementById('chooser');
+  const orderRow = document.getElementById('orderRow');
+
+  function applyCourse(key){
+    const c = COURSES[key];
+    if(!c) return;
+    orderRow.hidden = false;
+    document.getElementById('orderName').textContent = c.name;
+    document.getElementById('orderTotal').textContent = c.amt;
+    document.getElementById('gcAmount').textContent = c.amt;
+    document.getElementById('ocTag').textContent = c.tag;
+    document.getElementById('ocTitle').textContent = c.title;
+    const cov = document.getElementById('orderCover');
+    cov.className = 'cover ' + c.cover;
+  }
+
+  const preset = params.get('course');
+  if (preset && COURSES[preset]) {
+    applyCourse(preset);
+  } else {
+    chooser.hidden = false;
+    chooser.addEventListener('change', e=>{
+      chooser.querySelectorAll('label').forEach(l=>l.classList.remove('sel'));
+      const lbl = e.target.closest('label');
+      if(lbl) lbl.classList.add('sel');
+      applyCourse(e.target.value);
+    });
+  }
+
+  function copyNum(){
+    const n = document.getElementById('gcNumber').textContent.trim();
+    navigator.clipboard?.writeText(n.replace(/\s/g,''));
+    const b = event.target; const t = b.textContent;
+    b.textContent = 'Copied!'; setTimeout(()=>b.textContent=t, 1500);
+  }
+</script>
+</body>
+</html>
