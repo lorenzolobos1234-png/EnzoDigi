@@ -144,7 +144,7 @@ section{padding-block:clamp(56px,9vw,104px)}
     display:flex;flex-direction:column;gap:14px;
   }
   .cover-stack .cover{
-    position:relative;transform:none;
+    position:relative;top:auto;left:auto;right:auto;transform:none;
     width:100%;max-width:none;
   }
 }
