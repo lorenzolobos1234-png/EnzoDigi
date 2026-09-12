@@ -139,7 +139,16 @@ section{padding-block:clamp(56px,9vw,104px)}
 .cover-stack .c3{right:0;top:16%;transform:rotate(9deg);z-index:2}
 @media(max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
-  .cover-stack{height:340px;max-width:420px;margin:0 auto}
+  .cover-stack{
+    height:auto;max-width:100%;margin:0;
+    display:flex;gap:14px;overflow-x:auto;padding:6px 2px 10px;
+    scroll-snap-type:x mandatory;
+  }
+  .cover-stack .cover{
+    position:static;transform:none;
+    flex:0 0 62%;max-width:230px;width:62%;
+    scroll-snap-align:start;
+  }
 }
 
 /* ---------- course cover (mockup) ---------- */
