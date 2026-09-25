@@ -54,9 +54,9 @@
 
     <!-- shown when nothing is preselected -->
     <div class="choose" id="chooser" hidden>
-      <label data-course="racket"><input type="radio" name="course" value="racket"><span class="cn">RaketPH Mini Course</span><span class="cp">₱999</span></label>
-      <label data-course="busybooks"><input type="radio" name="course" value="busybooks"><span class="cn">Busy Books</span><span class="cp">₱1,499</span></label>
-      <label data-course="dpc"><input type="radio" name="course" value="dpc"><span class="cn">Digital Product Creation Course</span><span class="cp">₱2,499</span></label>
+      <label data-course="racket"><input type="radio" name="course" value="racket"><span class="cn">RaketPH Mini Course</span><span class="cp">₱499</span></label>
+      <label data-course="busybooks"><input type="radio" name="course" value="busybooks"><span class="cn">Busy Books</span><span class="cp">₱599</span></label>
+      <label data-course="dpc"><input type="radio" name="course" value="dpc"><span class="cn">Digital Product Creation Course</span><span class="cp">₱1,499</span></label>
     </div>
   </div>
 
@@ -114,9 +114,9 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   const COURSES = {
-    racket:    { name:"RaketPH Mini Course",            price:999,  amt:"₱999",   tag:"Mini Course",       cover:"cover-blue",  title:"RaketPH" },
-    busybooks: { name:"Busy Books",                       price:1499, amt:"₱1,499", tag:"Templates + Course",cover:"cover-orange",title:"Busy Books" },
-    dpc:       { name:"Digital Product Creation Course",  price:2499, amt:"₱2,499", tag:"Flagship Course",   cover:"cover-navy",  title:"Digital Product Creation" }
+    racket:    { name:"RaketPH Mini Course",            price:499,  amt:"₱499",   tag:"Mini Course",       cover:"cover-blue",  title:"RaketPH" },
+    busybooks: { name:"Busy Books",                       price:599,  amt:"₱599", tag:"Templates + Course",cover:"cover-orange",title:"Busy Books" },
+    dpc:       { name:"Digital Product Creation Course",  price:1499, amt:"₱1,499", tag:"Flagship Course",   cover:"cover-navy",  title:"Digital Product Creation" }
   };
 
   const params = new URLSearchParams(location.search);
